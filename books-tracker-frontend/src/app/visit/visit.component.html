@@ -1,0 +1,34 @@
+<div *ngIf=" visits; else loading">
+    <table>
+        <th>id</th>
+        <th>Дата обхода сайта</th>
+        <th>Статус</th>
+        <th>Добавлено книг</th>
+
+        <tr *ngFor="let a of visits; index as i ">
+            <td>{{+i + 1}}</td>
+            <td>{{a.date | date:'medium' :null:'ru'}}</td>
+            <td>{{a.success}}</td>
+            <td>
+                <a *ngIf="a.booksAdded>0; else simple"
+                   [routerLink]="['/']"
+                   [queryParams]="{visitId: a.id}">
+                    {{a.booksAdded}}</a>
+                <ng-template  #simple>{{a.booksAdded}}</ng-template>
+            </td>
+
+        </tr>
+    </table>
+    <div *ngIf="pages.length>0">Страницы
+        <ul class="pages">
+            <li *ngFor="let p of pages; let i=index ">
+                <a href="#" (click)="setPage(i, $event)" [ngClass]="{'active':i==this.curPage}">{{i + 1}}</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<ng-template #loading><p>Загрузка</p></ng-template>
+
+

@@ -1,0 +1,7 @@
+<div *ngIf="pages.length>0">Страницы
+    <ul class="pages">
+        <li *ngFor="let p of pages; let i=index ">
+            <a href="#" (click)="onClickPage(i, $event)" [ngClass]="{'active':i==this.curPage}">{{i + 1}}</a>
+        </li>
+    </ul>
+</div>

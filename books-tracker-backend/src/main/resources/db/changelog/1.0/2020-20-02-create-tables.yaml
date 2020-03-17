@@ -1,0 +1,401 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1582223317861-1
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: site_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: url
+                  type: VARCHAR(255)
+            tableName: site
+  - changeSet:
+      id: 1582223317861-2
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: create_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: profile_image_url
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1582223317861-3
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: notification_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: create_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: notification
+  - changeSet:
+      id: 1582223317861-4
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: genre_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: genre
+  - changeSet:
+      id: 1582223317861-5
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: visit_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: books_added
+                  type: INTEGER
+              - column:
+                  name: date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: success
+                  type: BOOLEAN
+              - column:
+                  name: site_id
+                  type: VARCHAR(255)
+            tableName: visit
+  - changeSet:
+      id: 1582223317861-6
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: author_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: author
+  - changeSet:
+      id: 1582223317861-7
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: VARCHAR(255)
+              - column:
+                  name: authors
+                  type: VARCHAR(255)
+            tableName: users_authors
+  - changeSet:
+      id: 1582223317861-8
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: VARCHAR(255)
+              - column:
+                  name: genres
+                  type: VARCHAR(255)
+            tableName: users_genres
+  - changeSet:
+      id: 1582223317861-9
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: book_pkey
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: visit_id
+                  type: VARCHAR(255)
+              - column:
+                  name: url
+                  type: VARCHAR(255)
+            tableName: book
+  - changeSet:
+      id: 1582223317861-10
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: book_id
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: authors_id
+                  type: VARCHAR(255)
+            tableName: book_authors
+  - changeSet:
+      id: 1582223317861-11
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: book_id
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: genres_id
+                  type: VARCHAR(255)
+            tableName: book_genres
+  - changeSet:
+      id: 1582223317861-12
+      author: Катя (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: user_id
+                  type: VARCHAR(255)
+              - column:
+                  name: books
+                  type: VARCHAR(255)
+            tableName: users_books
+  - changeSet:
+      id: 1582223317861-13
+      author: Катя (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uk_f9iil6uu8d9ohutpr2irlpvio
+            tableName: site
+  - changeSet:
+      id: 1582223317861-14
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_authors
+            constraintName: fk79t4vdf52vffn9y072msdqk9q
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1582223317861-15
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_genres
+            constraintName: fk6jttrkotguvhmy7p9xmotflqq
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1582223317861-16
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: users_books
+            constraintName: fkddv9o0ehcbpn1xdvypcynju0u
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: users
+            validate: true
+  - changeSet:
+      id: 1582223317861-17
+      author: Катя (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uk_ctffrbu4484ft8dlsa5vmqdka
+            tableName: genre
+  - changeSet:
+      id: 1582223317861-18
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: site_id
+            baseTableName: visit
+            constraintName: fk9m0bwosee5tkxe0hrsqksrfwa
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: site
+            validate: true
+  - changeSet:
+      id: 1582223317861-19
+      author: Катя (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uk_or6k6jmywerxbme223c988bmg
+            tableName: author
+  - changeSet:
+      id: 1582223317861-20
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: authors_id
+            baseTableName: book_authors
+            constraintName: fk551i3sllw1wj7ex6nir16blsm
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: author
+            validate: true
+  - changeSet:
+      id: 1582223317861-21
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: visit_id
+            baseTableName: book
+            constraintName: fkjr1orfao90s2w866h1b0okhr8
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: visit
+            validate: true
+  - changeSet:
+      id: 1582223317861-22
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: book_authors
+            constraintName: fks4xm7q8i3uxvaiswj1c35nnxw
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: book
+            validate: true
+  - changeSet:
+      id: 1582223317861-23
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: book_genres
+            constraintName: fk6soimqwnss59p5wt6m3afnuoo
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: book
+            validate: true
+  - changeSet:
+      id: 1582223317861-24
+      author: Катя (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: genres_id
+            baseTableName: book_genres
+            constraintName: fkkemwddl6cxkebe21lsqa2ob4q
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: genre
+            validate: true

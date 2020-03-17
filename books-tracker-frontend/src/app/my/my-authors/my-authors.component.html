@@ -1,0 +1,25 @@
+<div class="form-control">
+    <input type="text" [(ngModel)]="name" placeholder="Добавить автора...">
+</div>
+<button class="btn btn-primary" (click)="create()">Добавить</button>
+<div *ngIf=" authors; else loading">
+    <table>
+        <th>id</th>
+        <th>Название</th>
+
+        <th>Действие</th>
+        <tr *ngFor="let a of authors; index as i ">
+            <td>{{+i + 1}}</td>
+            <td>{{a}}</td>
+
+            <td>
+                <a (click)="remove(a)">Delete</a></td>
+        </tr>
+    </table>
+
+
+</div>
+
+
+<ng-template #loading><p>Загрузка</p></ng-template>
+

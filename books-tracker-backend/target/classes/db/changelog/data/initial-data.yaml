@@ -1,0 +1,111 @@
+databaseChangeLog:
+   - changeSet:
+      id: users-data
+      author: eka
+      context: dev or test
+      runOnChange: true
+      loadUpdateData:
+        primaryKey: id
+        file: data/users.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        seperator: ';'
+        encoding: UTF-8
+        tableName: users
+   - changeSet:
+       id: sites-data
+       author: eka
+       context: dev or test
+       runOnChange: true
+       loadUpdateData:
+         primaryKey: id
+         file: data/sites.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: site
+   - changeSet:
+       id: authors-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadUpdateData:
+         primaryKey: id
+         file: data/test-authors.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: author
+   - changeSet:
+       id: genres-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadUpdateData:
+         primaryKey: id
+         file: data/test-genres.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: genre
+   - changeSet:
+       id: visit-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadUpdateData:
+         primaryKey: id
+         file: data/test-visit.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: visit
+   - changeSet:
+       id: books-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadUpdateData:
+         primaryKey: id
+         file: data/test-books.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: book
+   - changeSet:
+       id: book-authors-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadData:
+         file: data/test-book-authors.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: book_authors
+   - changeSet:
+       id: book-genres-data
+       author: eka
+       context: test
+       runOnChange: true
+       loadData:
+         file: data/test-book-genres.csv
+         relativeToChangelogFile: true
+         separator: ;
+         quotChar: '"'
+         seperator: ';'
+         encoding: UTF-8
+         tableName: book_genres

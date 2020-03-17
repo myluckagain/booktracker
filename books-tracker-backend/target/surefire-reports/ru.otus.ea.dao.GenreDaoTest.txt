@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: ru.otus.ea.dao.GenreDaoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.819 s <<< FAILURE! - in ru.otus.ea.dao.GenreDaoTest
+whenUserCount_thenCorrect  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List ru.otus.ea.dao.UserRepository.bookDao(java.util.List,java.util.List,java.util.Date)! No property bookDao found for type User!
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List ru.otus.ea.dao.UserRepository.bookDao(java.util.List,java.util.List,java.util.Date)! No property bookDao found for type User!
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property bookDao found for type User!
+

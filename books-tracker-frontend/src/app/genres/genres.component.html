@@ -1,0 +1,22 @@
+<div class="alert alert-danger" *ngIf="genresService.error$ | async as error">
+    {{error}}
+</div>
+<div *ngIf=" genres; else loading">
+    <table>
+        <th>id</th>
+        <th>Имя</th>
+
+
+        <tr *ngFor="let a of genres; index as i ">
+            <td>{{+i + 1}}</td>
+            <td>{{a.name}}</td>
+
+
+        </tr>
+    </table>
+    <app-paginator (onPageChange)="loadPage($event)" [totalPages]="this.totalPages"></app-paginator>
+
+</div>
+
+
+<ng-template #loading><p>Загрузка</p></ng-template>

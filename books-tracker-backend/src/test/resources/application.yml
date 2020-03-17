@@ -1,0 +1,22 @@
+spring:
+  batch:
+    job:
+      enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost/testlib
+    username: postgres
+    password: qqq
+    initialization-mode: never
+    connectionProperties:
+      useUnicode: true
+      characterEncoding: utf-8
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      show-sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    contexts: test

@@ -1,0 +1,30 @@
+<nav class="navbar bg-primary"><h1>Library</h1>
+
+    <ul *ngIf="auth.isAuthenticated()">
+        <li routerLinkActive="active">
+            <a [routerLink]="['/my', 'genres']">Мои подписки</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/visits']">Обходы сайтов</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/users']">Пользователи</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/authors']">Авторы</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/genres']">Жанры</a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/']">Книги</a>
+        </li>
+
+        <li>
+            <a href="#" (click)="logout($event)">Выйти</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

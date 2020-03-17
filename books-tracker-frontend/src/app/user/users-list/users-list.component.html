@@ -1,0 +1,19 @@
+<div *ngIf="users ; else loading">
+    <div class="form-control"><input type="text" placeholder="Найти пользователя..." [(ngModel)]="searchStr"></div>
+    <table>
+        <th>id</th>
+        <th>Имя</th>
+        <th>Роль</th>
+
+        <th>Действие</th>
+        <tr *ngFor="let user of users | searchUsers:searchStr; index as i ">
+            <td>{{+i + 1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{roleName(user.role)}}</td>
+
+            <td>
+                <a (click)="remove(user.id)">Delete</a></td>
+        </tr>
+    </table>
+</div>
+<ng-template #loading><p class="text-center">Идет загрузка.</p></ng-template>

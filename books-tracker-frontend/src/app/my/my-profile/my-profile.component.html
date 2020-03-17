@@ -1,0 +1,49 @@
+<div *ngIf="loaded  ; else loading">
+    <form [formGroup]="form" (ngSubmit)="update()">
+        <h2>Редактирование Профиля</h2>
+
+
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input id="email" type="text" formControlName="email">
+            <div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">
+                <small *ngIf="form.get('email').errors.required">Введите email</small>
+                <small *ngIf="form.get('email').errors.email">Введите корректный email</small>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="password">Пароль</label>
+            <input id="password" type="password" formControlName="password">
+            <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
+                <small *ngIf="form.get('password').errors.minlength">
+                    Пароль должен быть не менее
+                    {{form.get('password').errors.minlength.requiredLength}}
+                    символов. Сейчас он
+                    {{form.get('password').errors.minlength.actualLength}}
+                    символа.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="confirmPassword">Подтвердите пароль</label>
+            <input id="confirmPassword" type="password" formControlName="confirmPassword">
+            <div *ngIf="form.get('confirmPassword').touched && form.get('confirmPassword').invalid" class="validation">
+                <small *ngIf="form.get('confirmPassword').errors.minlength">
+                    Пароль должен быть не менее
+                    {{form.get('confirmPassword').errors.minlength.requiredLength}}
+                    символов. Сейчас он
+                    {{form.get('confirmPassword').errors.minlength.actualLength}}
+                    символа.
+                </small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid || submitted" class="btn btn-primary">Сохранить</button>
+
+    </form>
+</div>
+<ng-template #loading><p class="text-center">Идет загрузка.</p></ng-template>
+
+

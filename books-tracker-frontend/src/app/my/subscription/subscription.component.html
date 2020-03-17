@@ -1,0 +1,23 @@
+<nav class="navbar bg-primary"><h2>{{auth.getUserName()}}</h2>
+
+    <ul>
+        <li routerLinkActive="active" >
+            <a [routerLink]="['profile']">Мой профиль</a>
+        </li>
+        <li routerLinkActive="active" >
+            <a [routerLink]="['bookNames']">Мои названия</a>
+        </li>
+        <li routerLinkActive="active" >
+            <a [routerLink]="['authors']">Мои авторы</a>
+        </li>
+        <li routerLinkActive="active" >
+            <a [routerLink]="['genres']">Мои жанры</a>
+        </li>
+        <li routerLinkActive="active" >
+            <a [routerLink]="['books']">Мои книги</a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

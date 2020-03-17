@@ -1,0 +1,32 @@
+<div *ngIf="books ; else loading">
+    <div class="form-control"><input type="text" placeholder="Найти книгу..." [(ngModel)]="searchStr"></div>
+    <table>
+        <th>id</th>
+        <th>Название</th>
+        <th>Жанр</th>
+        <th>Автор</th>
+        <th>URL</th>
+        <th>Дата добавления</th>
+
+        <tr *ngFor="let book of books | searchBooks:searchStr; index as i ">
+            <td>{{+i + 1}}</td>
+            <td>{{book.name}}</td>
+            <td>
+                <ul *ngFor="let g of book.genres">
+                    <li>{{g.name}}</li>
+                </ul>
+            </td>
+            <td>
+                <ul *ngFor="let a of book.authors">
+                    <li>{{a.name}}</li>
+                </ul>
+            </td>
+            <td>{{book.url}}</td>
+            <td>{{book.visit.date  | date:'short' :null:'ru'}}</td>
+
+
+        </tr>
+    </table>
+    <app-paginator (onPageChange)="loadPage($event)" [totalPages]="this.totalPages"></app-paginator>
+</div>
+<ng-template #loading><p class="text-center">Идет загрузка.</p></ng-template>

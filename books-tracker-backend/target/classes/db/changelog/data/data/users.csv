@@ -1,0 +1,4 @@
+id;name;role;password;create_date;email
+09145e82-ecde-11e9-81b4-2a2ae2dbcce4;admin;ROLE_ADMIN;$2a$10$c/xskKsGdCBB055VoDGpduiu5DtIaSVxGuohLnjxfVLjOc9Bti0KO;2018-12-12 00:00:00;newbookstest@mail.ru
+09146116-ecde-11e9-81b4-2a2ae2dbcce4;user1;ROLE_USER;$2a$10$c/xskKsGdCBB055VoDGpduiu5DtIaSVxGuohLnjxfVLjOc9Bti0KO;2018-12-12 00:00:00;newbookstest@mail.ru
+09146260-ecde-11e9-81b4-2a2ae2dbcce4;user2;ROLE_USER;$2a$10$c/xskKsGdCBB055VoDGpduiu5DtIaSVxGuohLnjxfVLjOc9Bti0KO;2018-12-12 00:00:00;newbookstest@mail.ru
